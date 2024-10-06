@@ -54,11 +54,15 @@ public class GameManager : MonoBehaviour
 
     List<Player> playerList = new List<Player>();
 
+#if UNITY_ANDROID
+    int touchCount = 0;             // 안드로이드 뒤로가기 터치 횟수
+    float timeFirstTouch = 0.0f;    // 안드로이드 뒤로가기 첫번째 터치 시간
+#endif
 
     private void Awake()
     {
-        if(Screen.width / Screen.height < 1080.0f / 1920.0f)
-            SetResolution();
+        //if(Screen.width / Screen.height < 1080.0f / 1920.0f)
+            //SetResolution();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
@@ -82,6 +86,30 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<GameManager>();
         }
+    }
+
+    void Update()
+    {
+#if UNITY_ANDROID
+        // 뒤로가기 두번 누르면 종료
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            touchCount++;
+            if(touchCount == 1)
+            {
+                timeFirstTouch = Time.time;
+            }
+            else if(touchCount == 2 && Time.time - timeFirstTouch < 0.7f)   // 0.7초 내에 두번 누르면
+            {
+                Application.Quit();
+            }
+            else if(touchCount == 2 && Time.time -  timeFirstTouch >= 0.7f) // 0.7초가 넘으면 1번 누른 판정
+            {
+                touchCount = 1;
+                timeFirstTouch = Time.time;
+            }
+        }
+#endif
     }
 
     public void AddPlayer(int index, int money, string name)

@@ -227,6 +227,12 @@ public class PlayUI : MonoBehaviour
 
         }
 
+        // 한명 빼고 전부 폴드 하면
+        if(gm.playerCount - gm.PlayerStateCount(1) == 1)
+        {
+            ChooseWinner();
+        }
+
         // 폴드를 제외한 모든 인원이 콜을 했거나 체크를 했을 때
         if(checkStack == gm.playerCount - gm.PlayerStateCount(1))
         {
@@ -594,6 +600,7 @@ public class PlayUI : MonoBehaviour
 
             goShowDown.SetActive(false);
             btnShowDown.gameObject.SetActive(false);
+            goAction.SetActive(false);
             btnGameStart.gameObject.SetActive(true);
         }
     }
