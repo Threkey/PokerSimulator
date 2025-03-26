@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 2096298165}
   - component: {fileID: 2096298164}
   m_Layer: 5
-  m_Name: Text_MadeBy
+  m_Name: Text_Version
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Made by Kim Hohyeon(\uAE40\uD638\uD604)\n2024-10-06 ver 1.0.0+1\nrlaghgus444@gmail.com"
+  m_text: "Made by Kim Hohyeon(\uAE40\uD638\uD604)\n2024-10-18 ver 1.0.0\nrlaghgus444@gmail.com"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df06b2b6836d04742a7f441d49bfe418, type: 2}
   m_sharedMaterial: {fileID: -5942204642678609592, guid: df06b2b6836d04742a7f441d49bfe418, type: 2}
